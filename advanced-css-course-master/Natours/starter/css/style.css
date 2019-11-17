@@ -26,8 +26,8 @@ body {
 	height: 95vh;
 	background-image: linear-gradient(
 		to bottom right, 
-		#7ed56fb7, 
-		#28b4858c), 
+		#7ed56fbe, 
+		#28b485a1), 
 	url('../img/hero.jpg');
 	background-size: cover;
 	background-position: top;
@@ -45,6 +45,7 @@ body {
 	height: 20px;
 }
 
+
 .text-box {
 	position: absolute;
 	top: 40%;
@@ -55,6 +56,7 @@ body {
 .heading-primary {
 	color: #fff;
 	text-transform: uppercase;
+	backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -62,6 +64,13 @@ body {
 	font-size: 60px;
 	font-weight: 400;
 	letter-spacing: 35px;
+	animation-name: moveInLeft;
+	animation-duration: 1s;
+
+/* 	
+	animation-timing-function: ease-out;
+	animation-iteration-count: 3;
+	animation-delay: 1s; */
 }
 
 .heading-primary-sub {
@@ -69,4 +78,42 @@ body {
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: 17.4px;
+	animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+
+	80% {
+		transform: translateX(10px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+/* 
+when using animation a 
+positive px value moves things from the right
+and a negative px value moves things from the left */
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+
+	80% {
+		transform: translateX(-10px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
 }
